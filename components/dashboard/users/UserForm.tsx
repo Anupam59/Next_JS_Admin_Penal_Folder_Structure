@@ -3,6 +3,9 @@
 import { useState } from "react"
 
 import { Button } from "@/components/common/ui/button"
+import { Field } from "@/components/common/ui/field"
+import { Input } from "@/components/common/ui/input"
+import { Select } from "@/components/common/ui/select"
 import type { User, UserRole, UserStatus } from "@/types/user.type"
 
 type UserFormValues = {
@@ -53,85 +56,65 @@ export function UserForm({ user, submitText, onCancel, onSubmit }: UserFormProps
 
   return (
     <form className="space-y-4" onSubmit={handleSubmit}>
-      <label className="space-y-1">
-        <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-          Name
-        </span>
-        <input
+      <Field label="Name">
+        <Input
           required
           value={values.name}
           onChange={(event) => updateValue("name", event.target.value)}
-          className="h-9 w-full rounded-md bg-slate-100 px-3 text-sm text-slate-900 outline-none focus:bg-slate-200/70 dark:bg-white/5 dark:text-white dark:focus:bg-white/10"
           placeholder="User name"
         />
-      </label>
+      </Field>
 
-      <label className="space-y-1">
-        <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-          Email
-        </span>
-        <input
+      <Field label="Email">
+        <Input
           required
           type="email"
           value={values.email}
           onChange={(event) => updateValue("email", event.target.value)}
-          className="h-9 w-full rounded-md bg-slate-100 px-3 text-sm text-slate-900 outline-none focus:bg-slate-200/70 dark:bg-white/5 dark:text-white dark:focus:bg-white/10"
           placeholder="user@example.com"
         />
-      </label>
+      </Field>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="space-y-1">
-          <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-            Role
-          </span>
-          <select
+        <Field label="Role">
+          <Select
             value={values.role}
             onChange={(event) =>
               updateValue("role", event.target.value as UserRole)
             }
-            className="h-9 w-full rounded-md bg-slate-100 px-3 text-sm text-slate-900 outline-none focus:bg-slate-200/70 dark:bg-white/5 dark:text-white dark:focus:bg-white/10"
           >
             {roles.map((role) => (
               <option key={role} value={role}>
                 {role}
               </option>
             ))}
-          </select>
-        </label>
+          </Select>
+        </Field>
 
-        <label className="space-y-1">
-          <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-            Status
-          </span>
-          <select
+        <Field label="Status">
+          <Select
             value={values.status}
             onChange={(event) =>
               updateValue("status", event.target.value as UserStatus)
             }
-            className="h-9 w-full rounded-md bg-slate-100 px-3 text-sm text-slate-900 outline-none focus:bg-slate-200/70 dark:bg-white/5 dark:text-white dark:focus:bg-white/10"
           >
             {statuses.map((status) => (
               <option key={status} value={status}>
                 {status}
               </option>
             ))}
-          </select>
-        </label>
+          </Select>
+        </Field>
       </div>
 
-      <label className="space-y-1">
-        <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-          Joined date
-        </span>
-        <input
+      <Field label="Joined date">
+        <Input
           required
           type="date"
           value={values.joinedAt}
           onChange={(event) => updateValue("joinedAt", event.target.value)}
-          className="h-9 w-full rounded-md bg-slate-100 px-3 text-sm text-slate-900 outline-none focus:bg-slate-200/70 dark:bg-white/5 dark:text-white dark:focus:bg-white/10"
         />
-      </label>
+      </Field>
 
       <div className="flex items-center justify-end gap-2 pt-2">
         <Button type="button" variant="outline" onClick={onCancel}>

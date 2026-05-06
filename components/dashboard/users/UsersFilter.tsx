@@ -4,6 +4,9 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { Search01Icon } from "@hugeicons/core-free-icons"
 
 import { Button } from "@/components/common/ui/button"
+import { Field } from "@/components/common/ui/field"
+import { Input } from "@/components/common/ui/input"
+import { Select } from "@/components/common/ui/select"
 import type { UserFilters, UserRole, UserStatus } from "@/types/user.type"
 
 type UsersFilterProps = {
@@ -48,10 +51,7 @@ export function UsersFilter({
       <div className="overflow-hidden">
         <div className="bg-white px-4 pb-4 shadow-sm shadow-slate-200/50 transition-transform duration-300 ease-in-out dark:bg-[#171a23] dark:shadow-none lg:px-8">
         <div className="grid gap-3 rounded-md bg-slate-50 p-4 dark:bg-white/5 md:grid-cols-2 xl:grid-cols-[1.4fr_1fr_1fr_1fr_1fr_auto]">
-          <label className="space-y-1">
-            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-              Search
-            </span>
+          <Field label="Search">
             <div className="relative">
               <HugeiconsIcon
                 icon={Search01Icon}
@@ -59,39 +59,33 @@ export function UsersFilter({
                 strokeWidth={1.7}
                 className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
               />
-              <input
+              <Input
                 value={filters.query}
                 onChange={(event) => updateFilter("query", event.target.value)}
                 placeholder="Name or email"
-                className="h-9 w-full rounded-md bg-white pl-9 pr-3 text-sm text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:bg-slate-100 dark:bg-[#171a23] dark:text-white dark:focus:bg-[#202331]"
+                className="bg-white pl-9 focus:bg-slate-100 dark:bg-[#171a23] dark:focus:bg-[#202331]"
               />
             </div>
-          </label>
+          </Field>
 
-          <label className="space-y-1">
-            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-              Role
-            </span>
-            <select
+          <Field label="Role">
+            <Select
               value={filters.role}
               onChange={(event) =>
                 updateFilter("role", event.target.value as "All" | UserRole)
               }
-              className="h-9 w-full rounded-md bg-white px-3 text-sm text-slate-900 outline-none transition-colors focus:bg-slate-100 dark:bg-[#171a23] dark:text-white dark:focus:bg-[#202331]"
+              className="bg-white focus:bg-slate-100 dark:bg-[#171a23] dark:focus:bg-[#202331]"
             >
               {roles.map((role) => (
                 <option key={role} value={role}>
                   {role}
                 </option>
               ))}
-            </select>
-          </label>
+            </Select>
+          </Field>
 
-          <label className="space-y-1">
-            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-              Status
-            </span>
-            <select
+          <Field label="Status">
+            <Select
               value={filters.status}
               onChange={(event) =>
                 updateFilter(
@@ -99,39 +93,33 @@ export function UsersFilter({
                   event.target.value as "All" | UserStatus
                 )
               }
-              className="h-9 w-full rounded-md bg-white px-3 text-sm text-slate-900 outline-none transition-colors focus:bg-slate-100 dark:bg-[#171a23] dark:text-white dark:focus:bg-[#202331]"
+              className="bg-white focus:bg-slate-100 dark:bg-[#171a23] dark:focus:bg-[#202331]"
             >
               {statuses.map((status) => (
                 <option key={status} value={status}>
                   {status}
                 </option>
               ))}
-            </select>
-          </label>
+            </Select>
+          </Field>
 
-          <label className="space-y-1">
-            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-              Joined from
-            </span>
-            <input
+          <Field label="Joined from">
+            <Input
               type="date"
               value={filters.joinedFrom}
               onChange={(event) => updateFilter("joinedFrom", event.target.value)}
-              className="h-9 w-full rounded-md bg-white px-3 text-sm text-slate-900 outline-none transition-colors focus:bg-slate-100 dark:bg-[#171a23] dark:text-white dark:focus:bg-[#202331]"
+              className="bg-white focus:bg-slate-100 dark:bg-[#171a23] dark:focus:bg-[#202331]"
             />
-          </label>
+          </Field>
 
-          <label className="space-y-1">
-            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-              Joined to
-            </span>
-            <input
+          <Field label="Joined to">
+            <Input
               type="date"
               value={filters.joinedTo}
               onChange={(event) => updateFilter("joinedTo", event.target.value)}
-              className="h-9 w-full rounded-md bg-white px-3 text-sm text-slate-900 outline-none transition-colors focus:bg-slate-100 dark:bg-[#171a23] dark:text-white dark:focus:bg-[#202331]"
+              className="bg-white focus:bg-slate-100 dark:bg-[#171a23] dark:focus:bg-[#202331]"
             />
-          </label>
+          </Field>
 
           <div className="flex items-end">
             <Button
