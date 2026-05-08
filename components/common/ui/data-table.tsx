@@ -61,7 +61,7 @@ function DataTable<TData>({
         className
       )}
     >
-      <div className="flex flex-col gap-1 p-2">
+      <div className="flex flex-col gap-1 p-3 sm:p-4 lg:p-5">
         <p className="text-sm text-slate-500 dark:text-slate-400">
           {totalLabel}
         </p>
@@ -78,7 +78,7 @@ function DataTable<TData>({
       </div>
 
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[760px] text-left">
+        <table className="w-full min-w-[700px] text-left sm:min-w-[760px]">
           <thead>
             <tr className="bg-slate-50 text-xs font-semibold uppercase text-slate-400 dark:bg-white/5 dark:text-slate-500">
               {columns.map((column, index) => (
@@ -114,11 +114,11 @@ function DataTable<TData>({
         ) : null}
       </div>
 
-      <div className="flex flex-col gap-3 px-5 py-4 text-sm text-slate-500 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-3 px-3 py-4 text-sm text-slate-500 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-5">
         <p>
           Showing {showingStart}-{showingEnd} of {filteredTotal} {itemLabel}
         </p>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Button
             variant="outline"
             disabled={safePage === 1}

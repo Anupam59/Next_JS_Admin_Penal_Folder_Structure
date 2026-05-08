@@ -12,11 +12,11 @@ export function PageHeader({
   actions,
 }: PageHeaderProps) {
   return (
-    <div className="bg-white px-4 py-4 shadow-sm shadow-slate-200/50 dark:bg-[#171a23] dark:shadow-none lg:px-8">
+    <div className="bg-white px-4 py-3 shadow-sm shadow-slate-200/50 dark:bg-[#171a23] dark:shadow-none sm:py-4 lg:px-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-3">
-            <h1 className="text-lg font-semibold text-slate-950 dark:text-white">
+            <h1 className="text-base font-semibold text-slate-950 dark:text-white sm:text-lg">
               {title}
             </h1>
             <div className="hidden h-5 w-px bg-slate-200/70 dark:bg-white/10 sm:block" />
@@ -38,7 +38,11 @@ export function PageHeader({
             </div>
           </div>
         </div>
-        {actions ? <div className="flex items-center gap-3">{actions}</div> : null}
+        {actions ? (
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            {actions}
+          </div>
+        ) : null}
       </div>
     </div>
   )

@@ -1,15 +1,25 @@
-import { Button } from "@/components/common/ui/button"
+import Link from "next/link"
+
+import { AuthCard } from "@/components/auth/AuthCard"
+import { LoginForm } from "@/components/auth/LoginForm"
 
 export default function AdminLoginPage() {
   return (
-    <section className="w-full max-w-sm space-y-4">
-      <div className="space-y-1">
-        <h1 className="text-xl font-semibold">Admin Login</h1>
-        <p className="text-sm text-muted-foreground">
-          Admin panel-e login korar page.
-        </p>
-      </div>
-      <Button className="w-full">Login</Button>
-    </section>
+    <AuthCard
+      title="Sign in to Meal System"
+      description={
+        <>
+          New here?{" "}
+          <Link
+            href="/admin/forgot-password"
+            className="font-medium text-blue-600 hover:text-blue-700"
+          >
+            Recover your access
+          </Link>
+        </>
+      }
+    >
+      <LoginForm />
+    </AuthCard>
   )
 }

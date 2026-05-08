@@ -67,22 +67,30 @@ const demoItems: NavItem[] = [
 
 type SidebarProps = {
   isCollapsed: boolean
+  isMobileOpen: boolean
   onToggleCollapse: () => void
+  onCloseMobile: () => void
 }
 
-export function Sidebar({ isCollapsed, onToggleCollapse }: SidebarProps) {
+export function Sidebar({
+  isCollapsed,
+  isMobileOpen,
+  onToggleCollapse,
+  onCloseMobile,
+}: SidebarProps) {
   const pathname = usePathname()
   const [isDemoOpen, setIsDemoOpen] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
-  const isExpanded = !isCollapsed || isHovered
+  const isExpanded = isMobileOpen || !isCollapsed || isHovered
 
   return (
     <aside
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        "fixed inset-y-0 left-0 z-40 hidden bg-[#151720] text-slate-300 transition-[width] duration-300 ease-in-out lg:block",
-        isExpanded ? "w-64" : "w-[4.5rem]"
+        "fixed inset-y-0 left-0 z-40 bg-[#151720] text-slate-300 transition-[width,transform] duration-300 ease-in-out",
+        isMobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
+        isExpanded ? "w-72 lg:w-64" : "w-[4.5rem]"
       )}
     >
       <div
@@ -101,7 +109,7 @@ export function Sidebar({ isCollapsed, onToggleCollapse }: SidebarProps) {
         ) : null}
         <button
           type="button"
-          onClick={onToggleCollapse}
+          onClick={isMobileOpen ? onCloseMobile : onToggleCollapse}
           className={cn(
             "grid size-9 place-items-center rounded-md text-slate-500 transition-all duration-200 hover:bg-white/5 hover:text-blue-400",
             !isExpanded && "text-blue-500"
@@ -110,7 +118,7 @@ export function Sidebar({ isCollapsed, onToggleCollapse }: SidebarProps) {
           title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
           <HugeiconsIcon
-            icon={isCollapsed ? ArrowRight01Icon : ArrowLeft01Icon}
+            icon={isCollapsed && !isMobileOpen ? ArrowRight01Icon : ArrowLeft01Icon}
             size={22}
             strokeWidth={1.8}
           />
@@ -129,6 +137,7 @@ export function Sidebar({ isCollapsed, onToggleCollapse }: SidebarProps) {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={onCloseMobile}
                 className={cn(
                   "flex h-11 items-center rounded-md text-sm font-medium transition-all duration-200",
                   isExpanded ? "gap-3 px-3" : "justify-center px-0",

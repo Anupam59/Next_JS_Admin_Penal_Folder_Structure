@@ -79,7 +79,7 @@ export function ShellModal({
   return (
     <div
       className={cn(
-        "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-sm transition-opacity duration-200 ease-out",
+        "fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-slate-950/50 p-3 backdrop-blur-sm transition-opacity duration-200 ease-out sm:p-4",
         isVisible ? "opacity-100" : "opacity-0"
       )}
     >

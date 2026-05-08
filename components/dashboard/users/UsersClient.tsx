@@ -90,7 +90,7 @@ export function UsersClient({ users }: UsersClientProps) {
         onChange={setFilters}
         onReset={() => setFilters(defaultFilters)}
       />
-      <section className="p-4 lg:p-8">
+      <section className="p-3 sm:p-4 lg:p-8">
         <UsersTable
           users={filteredUsers}
           totalUsers={userList.length}

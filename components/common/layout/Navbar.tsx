@@ -8,14 +8,21 @@ import {
   Settings02Icon,
 } from "@hugeicons/core-free-icons"
 
+import { cn } from "@/lib/utils"
+
 const topLinks = ["Dashboards", "Pages", "Apps", "Help"]
 
-export function Navbar() {
+type NavbarProps = {
+  onOpenMenu: () => void
+}
+
+export function Navbar({ onOpenMenu }: NavbarProps) {
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center justify-between bg-[#11131a] px-4 text-slate-400 lg:px-8">
+    <header className="sticky top-0 z-30 flex h-16 items-center justify-between bg-[#11131a] px-3 text-slate-400 sm:px-4 lg:px-8">
       <div className="flex items-center gap-4">
         <button
           type="button"
+          onClick={onOpenMenu}
           className="grid size-9 place-items-center rounded-md text-slate-400 hover:bg-white/5 hover:text-white lg:hidden"
           aria-label="Open menu"
         >
@@ -39,7 +46,10 @@ export function Navbar() {
             <button
               key={index}
               type="button"
-              className="grid size-9 place-items-center rounded-md text-slate-500 hover:bg-white/5 hover:text-white"
+              className={cn(
+                "size-9 place-items-center rounded-md text-slate-500 hover:bg-white/5 hover:text-white",
+                index > 1 ? "hidden sm:grid" : "grid"
+              )}
               aria-label="Navbar action"
             >
               <HugeiconsIcon icon={icon} size={20} strokeWidth={1.7} />
