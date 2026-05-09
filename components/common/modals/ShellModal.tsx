@@ -79,7 +79,7 @@ export function ShellModal({
   return (
     <div
       className={cn(
-        "fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-slate-950/50 p-3 backdrop-blur-sm transition-opacity duration-200 ease-out sm:p-4",
+        "fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-slate-950/50 px-3 py-6 backdrop-blur-sm transition-opacity duration-200 ease-out sm:px-4 sm:py-10",
         isVisible ? "opacity-100" : "opacity-0"
       )}
     >
@@ -91,7 +91,7 @@ export function ShellModal({
       />
       <div
         className={cn(
-          "relative w-full rounded-md bg-white shadow-xl transition-all duration-200 ease-out dark:bg-[#171a23]",
+          "relative flex max-h-[calc(100svh-3rem)] w-full flex-col rounded-md bg-white shadow-xl transition-all duration-200 ease-out dark:bg-[#171a23] sm:max-h-[calc(100svh-5rem)]",
           isVisible
             ? "translate-y-0 scale-100 opacity-100"
             : "translate-y-2 scale-[0.98] opacity-0",
@@ -102,7 +102,7 @@ export function ShellModal({
         aria-modal="true"
         aria-labelledby="modal-title"
       >
-        <div className="flex items-start justify-between gap-4 px-5 py-4">
+        <div className="shrink-0 flex items-start justify-between gap-4 px-5 py-4">
           <div className="min-w-0">
             <h2
               id="modal-title"
@@ -127,10 +127,12 @@ export function ShellModal({
           </Button>
         </div>
 
-        <div className={cn("px-5 pb-5", contentClassName)}>{children}</div>
+        <div className={cn("min-h-0 overflow-y-auto px-5 pb-5", contentClassName)}>
+          {children}
+        </div>
 
         {footer ? (
-          <div className="flex items-center justify-end gap-2 px-5 pb-5">
+          <div className="shrink-0 flex items-center justify-end gap-2 px-5 pb-5">
             {footer}
           </div>
         ) : null}

@@ -9,6 +9,8 @@ export type User = {
   role: UserRole
   status: UserStatus
   joinedAt: string
+  description?: string
+  richDescription?: string
 }
 
 export type UserFilters = {

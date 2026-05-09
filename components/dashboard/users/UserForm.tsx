@@ -5,7 +5,9 @@ import { useState } from "react"
 import { Button } from "@/components/common/ui/button"
 import { Field } from "@/components/common/ui/field"
 import { Input } from "@/components/common/ui/input"
+import { RichTextEditor } from "@/components/common/ui/rich-text-editor"
 import { Select } from "@/components/common/ui/select"
+import { Textarea } from "@/components/common/ui/textarea"
 import type { User, UserRole, UserStatus } from "@/types/user.type"
 
 type UserFormValues = {
@@ -14,6 +16,8 @@ type UserFormValues = {
   role: UserRole
   status: UserStatus
   joinedAt: string
+  description: string
+  richDescription: string
 }
 
 type UserFormProps = {
@@ -37,6 +41,8 @@ export function UserForm({ user, submitText, onCancel, onSubmit }: UserFormProps
     role: user?.role ?? "Member",
     status: user?.status ?? "Active",
     joinedAt: user?.joinedAt ?? getToday(),
+    description: user?.description ?? "",
+    richDescription: user?.richDescription ?? "",
   })
 
   function updateValue<Key extends keyof UserFormValues>(
@@ -113,6 +119,22 @@ export function UserForm({ user, submitText, onCancel, onSubmit }: UserFormProps
           type="date"
           value={values.joinedAt}
           onChange={(event) => updateValue("joinedAt", event.target.value)}
+        />
+      </Field>
+
+      <Field label="Description" hint="Plain text description for this user.">
+        <Textarea
+          value={values.description}
+          onChange={(event) => updateValue("description", event.target.value)}
+          placeholder="Write short user description..."
+        />
+      </Field>
+
+      <Field label="Rich description" hint="Design preview editor for formatted notes.">
+        <RichTextEditor
+          value={values.richDescription}
+          onChange={(value) => updateValue("richDescription", value)}
+          placeholder="Write formatted user notes..."
         />
       </Field>
 
