@@ -1,7 +1,7 @@
 import Link from "next/link"
 
-import { AuthCard } from "@/components/auth/AuthCard"
-import { LoginForm } from "@/components/auth/LoginForm"
+import { AuthCard } from "@/components/admin/auth/AuthCard"
+import { LoginForm } from "@/components/admin/auth/LoginForm"
 
 export default function AdminLoginPage() {
   return (

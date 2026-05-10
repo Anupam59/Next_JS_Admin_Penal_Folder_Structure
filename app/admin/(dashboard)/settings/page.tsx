@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/common/layout/Breadcrumb"
+import { PageHeader } from "@/components/admin/layout/Breadcrumb"
 
 export default function SettingsPage() {
   return (

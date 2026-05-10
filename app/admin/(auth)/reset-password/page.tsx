@@ -1,5 +1,5 @@
-import { AuthCard } from "@/components/auth/AuthCard"
-import { ResetPasswordForm } from "@/components/auth/ResetPasswordForm"
+import { AuthCard } from "@/components/admin/auth/AuthCard"
+import { ResetPasswordForm } from "@/components/admin/auth/ResetPasswordForm"
 
 export default function ResetPasswordPage() {
   return (
