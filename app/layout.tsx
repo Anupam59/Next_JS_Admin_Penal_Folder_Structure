@@ -1,11 +1,18 @@
 import type { Metadata } from "next"
+import { Nunito_Sans } from "next/font/google"
 
 import { ThemeProvider } from "@/components/shared/theme-provider"
 import "@/styles/globals.css"
 
+const siteFont = Nunito_Sans({
+  subsets: ["latin"],
+  variable: "--font-site",
+  display: "swap",
+})
+
 export const metadata: Metadata = {
-  title: "Meal System Admin",
-  description: "Admin panel for the Meal System Software.",
+  title: "MealMate",
+  description: "Smart meal subscription and admin system.",
 }
 
 export default function RootLayout({
@@ -17,7 +24,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className="font-sans antialiased"
+      className={`${siteFont.variable} font-sans antialiased`}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>

@@ -1,26 +1,32 @@
 import { PackageSummary } from "@/components/site/package/PackageSummary"
+import { PricingSection } from "@/components/site/home/PricingSection"
+import { WeeklyMenuSection } from "@/components/site/home/WeeklyMenuSection"
+import { SectionTitle } from "@/components/site/ui/section-title"
+import { getWeeklyMenu } from "@/services/site/menu.service"
 import { getSitePackages } from "@/services/site/packages.service"
 
 export default async function PackagePage() {
-  const packages = await getSitePackages()
+  const [packages, menuItems] = await Promise.all([
+    getSitePackages(),
+    getWeeklyMenu(),
+  ])
 
   return (
-    <section className="mx-auto min-h-[calc(100svh-8rem)] max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-      <p className="text-sm font-semibold uppercase tracking-wide text-blue-600">
-        Packages
-      </p>
-      <h1 className="mt-3 text-3xl font-bold text-slate-950">
-        Package page is ready.
-      </h1>
-      <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-        We can build the user package listing, package details, purchase flow,
-        and customer dashboard from this route next.
-      </p>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {packages.map((item) => (
-          <PackageSummary key={item.id} item={item} />
-        ))}
-      </div>
-    </section>
+    <>
+      <section className="site-container py-14">
+        <SectionTitle
+          eyebrow="Meal Packages"
+          title="Pick a plan that fits your routine"
+          description="Choose from budget, balanced and premium meal plans. You can customize menu preferences after selecting a plan."
+        />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {packages.map((item) => (
+            <PackageSummary key={item.id} item={item} />
+          ))}
+        </div>
+      </section>
+      <PricingSection packages={packages} />
+      <WeeklyMenuSection items={menuItems} />
+    </>
   )
 }

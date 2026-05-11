@@ -1,0 +1,54 @@
+.site-theme {
+  --site-font: var(--font-site), Arial, Helvetica, sans-serif;
+  --site-bg: #fbfdf7;
+  --site-surface: #ffffff;
+  --site-surface-soft: #f2f8eb;
+  --site-text: #101810;
+  --site-muted: #5b6859;
+  --site-primary: #0b6f12;
+  --site-primary-strong: #07570d;
+  --site-primary-soft: #e8f6dd;
+  --site-accent: #ff7a00;
+  --site-accent-soft: #fff0dd;
+  --site-border: #e1eadb;
+  --site-shadow: 0 18px 50px rgb(15 42 18 / 10%);
+  --site-card-shadow: 0 10px 30px rgb(15 42 18 / 8%);
+
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at top right, rgb(219 242 200 / 55%), transparent 32rem),
+    linear-gradient(180deg, #fffef9 0%, var(--site-bg) 42%, #ffffff 100%);
+  color: var(--site-text);
+  font-family: var(--site-font);
+}
+
+.dark .site-theme {
+  --site-bg: #081108;
+  --site-surface: #111b12;
+  --site-surface-soft: #142315;
+  --site-text: #f6fbf1;
+  --site-muted: #b5c5ad;
+  --site-primary: #68d36e;
+  --site-primary-strong: #8be98f;
+  --site-primary-soft: #173317;
+  --site-accent: #ff9a35;
+  --site-accent-soft: #3a2511;
+  --site-border: #243822;
+  --site-shadow: 0 18px 50px rgb(0 0 0 / 32%);
+  --site-card-shadow: 0 10px 30px rgb(0 0 0 / 26%);
+
+  background:
+    radial-gradient(circle at top right, rgb(69 125 54 / 30%), transparent 32rem),
+    linear-gradient(180deg, #0a1209 0%, var(--site-bg) 55%, #0a1209 100%);
+}
+
+.site-container {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+.site-card {
+  border: 1px solid var(--site-border);
+  background: color-mix(in srgb, var(--site-surface) 94%, transparent);
+  box-shadow: var(--site-card-shadow);
+}

@@ -14,10 +14,10 @@ export function SiteButton({
   return (
     <button
       className={cn(
-        "inline-flex h-11 items-center justify-center rounded-md px-5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30 disabled:pointer-events-none disabled:opacity-50",
+        "inline-flex h-11 items-center justify-center gap-2 rounded-md px-5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30 disabled:pointer-events-none disabled:opacity-50",
         variant === "primary"
-          ? "bg-blue-600 text-white hover:bg-blue-700"
-          : "border border-slate-200 bg-white text-slate-900 hover:bg-slate-50",
+          ? "bg-[var(--site-primary)] text-white hover:bg-[var(--site-primary-strong)]"
+          : "border border-[var(--site-border)] bg-[var(--site-surface)] text-[var(--site-primary)] hover:bg-[var(--site-primary-soft)]",
         className
       )}
       {...props}

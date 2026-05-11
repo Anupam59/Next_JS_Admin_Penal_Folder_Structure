@@ -11,7 +11,7 @@ export function AdminShell({ children }: Readonly<{ children: React.ReactNode }>
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false)
 
   return (
-    <div className="min-h-svh bg-[#f5f6fa] text-slate-950 dark:bg-[#0f1117] dark:text-slate-100">
+    <div className="admin-theme min-h-svh bg-[#f5f6fa] text-slate-950 dark:bg-[#0f1117] dark:text-slate-100">
       <button
         type="button"
         aria-label="Close menu"

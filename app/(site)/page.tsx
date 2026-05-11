@@ -1,36 +1,32 @@
-import Link from "next/link"
+import { CtaSection } from "@/components/site/home/CtaSection"
+import { HeroSection } from "@/components/site/home/HeroSection"
+import { HowItWorksSection } from "@/components/site/home/HowItWorksSection"
+import { PricingSection } from "@/components/site/home/PricingSection"
+import { StatsSection } from "@/components/site/home/StatsSection"
+import { TestimonialSection } from "@/components/site/home/TestimonialSection"
+import { WeeklyMenuSection } from "@/components/site/home/WeeklyMenuSection"
+import { WhyChooseSection } from "@/components/site/home/WhyChooseSection"
+import { getWeeklyMenu } from "@/services/site/menu.service"
+import { getSitePackages } from "@/services/site/packages.service"
+import { getTestimonials } from "@/services/site/testimonials.service"
 
-import { HomeIntro } from "@/components/site/home/HomeIntro"
-import { SiteButton } from "@/components/site/ui/button"
-import { cn } from "@/lib/shared/utils"
+export default async function SiteHomePage() {
+  const [menuItems, packages, testimonials] = await Promise.all([
+    getWeeklyMenu(),
+    getSitePackages(),
+    getTestimonials(),
+  ])
 
-export default function SiteHomePage() {
   return (
-    <section className="mx-auto grid min-h-[calc(100svh-8rem)] max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
-      <div>
-        <p className="text-sm font-semibold uppercase tracking-wide text-blue-600">
-          User Website
-        </p>
-        <h1 className="mt-4 max-w-2xl text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
-          Meal System public site starts here.
-        </h1>
-        <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-          This route is separated from the admin panel and ready for home,
-          package, pricing, and customer-facing features.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <SiteButton>Explore Packages</SiteButton>
-          <Link
-            href="/admin"
-            className={cn(
-              "inline-flex h-11 items-center justify-center rounded-md border border-slate-200 bg-white px-5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
-            )}
-          >
-            Admin Panel
-          </Link>
-        </div>
-      </div>
-      <HomeIntro />
-    </section>
+    <>
+      <HeroSection />
+      <WhyChooseSection />
+      <HowItWorksSection />
+      <WeeklyMenuSection items={menuItems} />
+      <PricingSection packages={packages} />
+      <StatsSection />
+      <TestimonialSection items={testimonials} />
+      <CtaSection />
+    </>
   )
 }

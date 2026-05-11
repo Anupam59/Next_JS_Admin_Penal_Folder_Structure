@@ -7,7 +7,7 @@ export default function SiteLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div className="min-h-svh bg-slate-50 text-slate-950">
+    <div className="site-theme">
       <SiteHeader />
       <main>{children}</main>
       <SiteFooter />
