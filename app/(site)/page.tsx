@@ -10,7 +10,11 @@ import { getWeeklyMenu } from "@/services/site/menu.service"
 import { getSitePackages } from "@/services/site/packages.service"
 import { getTestimonials } from "@/services/site/testimonials.service"
 
+const placeholderTestDelay = 5000
+
 export default async function SiteHomePage() {
+  await new Promise((resolve) => setTimeout(resolve, placeholderTestDelay))
+
   const [menuItems, packages, testimonials] = await Promise.all([
     getWeeklyMenu(),
     getSitePackages(),

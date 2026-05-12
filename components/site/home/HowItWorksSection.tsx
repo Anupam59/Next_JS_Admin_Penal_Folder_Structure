@@ -8,7 +8,7 @@ import {
 
 import { SiteCard } from "@/components/site/ui/card"
 import { SiteIconBox } from "@/components/site/ui/icon-box"
-import { SectionTitle } from "@/components/site/ui/section-title"
+import { SectionTitle } from "@/components/site/common/SectionTitle"
 
 const steps = [
   { title: "Choose Package", text: "Select your preferred meal package.", icon: ShoppingBasket03Icon },

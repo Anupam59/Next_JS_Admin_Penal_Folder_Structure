@@ -1,7 +1,7 @@
 import { PackageSummary } from "@/components/site/package/PackageSummary"
 import { PricingSection } from "@/components/site/home/PricingSection"
 import { WeeklyMenuSection } from "@/components/site/home/WeeklyMenuSection"
-import { SectionTitle } from "@/components/site/ui/section-title"
+import { SectionTitle } from "@/components/site/common/SectionTitle"
 import { getWeeklyMenu } from "@/services/site/menu.service"
 import { getSitePackages } from "@/services/site/packages.service"
 

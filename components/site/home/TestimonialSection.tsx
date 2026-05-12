@@ -3,7 +3,7 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { LeftToRightBlockQuoteIcon } from "@hugeicons/core-free-icons"
 
 import { SiteCard } from "@/components/site/ui/card"
-import { SectionTitle } from "@/components/site/ui/section-title"
+import { SectionTitle } from "@/components/site/common/SectionTitle"
 import type { Testimonial } from "@/types/site/testimonial.type"
 
 type TestimonialSectionProps = {

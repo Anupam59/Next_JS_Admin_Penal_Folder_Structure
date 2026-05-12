@@ -1,6 +1,6 @@
 import { PackageCard } from "@/components/site/package/PackageCard"
 import { SiteCard } from "@/components/site/ui/card"
-import { SectionTitle } from "@/components/site/ui/section-title"
+import { SectionTitle } from "@/components/site/common/SectionTitle"
 import type { SitePackage } from "@/types/site/package.type"
 
 type PricingSectionProps = {
