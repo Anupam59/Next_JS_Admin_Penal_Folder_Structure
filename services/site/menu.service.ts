@@ -49,6 +49,14 @@ const weeklyMenu: WeeklyMenuItem[] = [
     image: "/site/menu/dinner-3.png",
     items: ["Rice", "Mutton Curry", "Dal", "Dessert"],
   },
+  {
+    id: "sun-dinner",
+    day: "Sun",
+    date: "25 May",
+    mealType: "Dinner",
+    image: "/site/menu/dinner-3.png",
+    items: ["Rice", "Mutton Curry", "Dal", "Dessert"],
+  },
 ]
 
 export async function getWeeklyMenu() {

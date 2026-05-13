@@ -3,7 +3,7 @@ import {
   type DataTableColumn,
 } from "@/components/admin/ui/data-table"
 import { StatusBadge, type StatusBadgeTone } from "@/components/admin/ui/status-badge"
-import { UserActions } from "@/components/admin/users/UserActions"
+import { UserActions } from "@/components/admin/pages/user/UserActions"
 import type { User, UserStatus } from "@/types/admin/user.type"
 
 const rowsPerPage = 5

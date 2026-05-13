@@ -1,4 +1,4 @@
-import { PackageCard } from "@/components/site/package/PackageCard"
+import { PackageCard } from "@/components/site/pages/package/PackageCard"
 import { SiteCard } from "@/components/site/ui/card"
 import { SectionTitle } from "@/components/site/common/SectionTitle"
 import type { SitePackage } from "@/types/site/package.type"

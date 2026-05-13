@@ -8,9 +8,9 @@ import { PageHeader } from "@/components/admin/layout/Breadcrumb"
 import { DeleteModal } from "@/components/admin/modals/DeleteModal"
 import { ShellModal } from "@/components/admin/modals/ShellModal"
 import { Button } from "@/components/admin/ui/button"
-import { UserForm } from "@/components/admin/users/UserForm"
-import { UsersFilter } from "@/components/admin/users/UsersFilter"
-import { UsersTable } from "@/components/admin/users/UsersTable"
+import { UserForm } from "@/components/admin/pages/user/UserForm"
+import { UsersFilter } from "@/components/admin/pages/user/UsersFilter"
+import { UsersTable } from "@/components/admin/pages/user/UsersTable"
 import type { User, UserFilters } from "@/types/admin/user.type"
 
 type UsersClientProps = {
